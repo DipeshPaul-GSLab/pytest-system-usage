@@ -31,6 +31,7 @@ def save_csv(key, value):
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     row = [timestamp, key, value]
     df = pd.DataFrame([row], columns=['timestamp', 'key', 'value'])
+    df.to_csv('output.csv', mode='a', header=False, index=False)
 
     header = ['timestamp', 'key', 'value']
     # if df does not have header then add header
